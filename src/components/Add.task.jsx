@@ -12,8 +12,16 @@ const AddTask = ({handleTaskAddition}) => {
     }
 
     const handleAddTaskClick = () => {
+       if (inputData.trim()) { // Verifica se o input não está vazio
         handleTaskAddition(inputData)
         setInputData('');
+       }
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleAddTaskClick();
+        }
     }
 
     return (
@@ -21,8 +29,11 @@ const AddTask = ({handleTaskAddition}) => {
             <input 
                 onChange={handleInputChange} 
                 value={inputData}
+                onKeyDown={handleKeyPress} // Adiciona o manipulador para a tecla Enter
                 className='add-task-input' 
-                type="text" />
+                type="text" 
+                placeholder='Adicionar nova tarefa'
+                />
             ;
             <div className="add-task-button-container">
                 <Button onClick={handleAddTaskClick}>Adicionar</Button>

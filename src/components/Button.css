@@ -1,3 +1,7 @@
+.button:hover {
+    background-color: #555555 ;
+    color: #55208a;
+}
 .button {
     background-color:#8000ff;
     height: 40px;
@@ -9,4 +13,5 @@
     font-weight: bold;
     cursor: pointer;
     border: none;
+    transition: all 0.5s ease;
 };
